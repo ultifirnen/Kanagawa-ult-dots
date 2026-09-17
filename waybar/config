@@ -1,0 +1,67 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+
+    "modules-left": ["custom/power", "hyprland/workspaces", "custom/active-app"],
+    "modules-center": ["custom/date", "clock"],
+    "modules-right": ["tray", "pulseaudio", "hyprland/language", "cpu", "custom/gpu"],
+
+    "custom/power": {
+        "format": "\uf303",
+        "on-click": "wlogout",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "format": "",
+        "on-click": "activate"
+    },
+
+    "custom/active-app": {
+        "exec": "~/.config/waybar/scripts/active-app.sh",
+        "format": "{}",
+        "max-length": 40,
+        "tooltip": false
+    },
+
+    "custom/date": {
+        "format": "{}",
+        "exec": "date '+%a %d, %b %Y'",
+        "interval": 60,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "interval": 1
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "\uf6a9",
+        "format-icons": {
+            "default": ["\uf026", "\uf027", "\uf028"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "hyprland/language": {
+        "format": "{short}"
+    },
+
+    "cpu": {
+        "format": "\uf2db {usage}%"
+    },
+
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": "\uf2db {}%",
+        "interval": 2
+    }
+}
